@@ -92,7 +92,9 @@ const Workshop = () => {
 
  {/* Workshops Grid */}
       <section className="py-10 bg-gray-50 dark:bg-transparent">
+      
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-red-600/10 dark:bg-red-600/20 border border-red-600/30 rounded-full text-red-600 dark:text-red-400 text-sm font-medium mb-6">
               Nos Implantations
@@ -101,18 +103,20 @@ const Workshop = () => {
               Nos <span className="gradient-text">Showroom</span> en Afrique de l'Ouest
             </h2>
             <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-              Présents dans 4 pays pour vous servir au plus près de vos besoins.
+              Nous sommes présent pour vous servir au plus près de vos besoins.
             </p> <br/>  <br/>
             {/* <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                <span className="gradient-text">BENIN</span> 
             </h2> */}
           </motion.div>
-
+              
           <div className="space-y-12">
             {workshops.map((workshop, index) => (
               <motion.div key={workshop.city} initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-6 sm:gap-8 items-stretch`}>
-
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+               <span className="gradient-text">{workshop.bigCountry}</span> 
+            </h2>
 
                 {/* Image */}
                 <motion.div whileHover={{ scale: 1.02 }} className="lg:w-1/2 relative group">
@@ -192,9 +196,7 @@ const Workshop = () => {
                   </div>
                   
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-               <span className="gradient-text">{workshop.bigCountry}</span> 
-            </h2>
+                
 
               </motion.div>
               
