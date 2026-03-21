@@ -13,7 +13,7 @@ const Brands = () => {
     if (type.includes('Deux-roues')) return Bike;
     return Car;
   };
-
+const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const getBrandVehicules = (marqueId: string) =>
     allVehicules.filter(v => v.marqueId === marqueId && v.statut !== 'vendu');
 
@@ -101,7 +101,7 @@ const Brands = () => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 50 }}
                 transition={{ type: 'spring', bounce: 0.3 }}
-                className="relative w-full max-w-5xl max-h-[95vh] overflow-y-auto bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 rounded-3xl"
+                className="relative w-full max-w-[95vw] max-h-[95vh] overflow-y-auto bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 rounded-3xl"
                 onClick={e => e.stopPropagation()}
               >
                 <button onClick={() => setSelectedBrand(null)}
@@ -130,58 +130,85 @@ const Brands = () => {
                   )}
 
                   {/* Véhicules */}
-                  <div className="flex items-center gap-3 mb-5">
+                  {/* <div className="flex items-center gap-3 mb-5">
                     <span className="w-8 h-0.5 bg-red-600" />
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                       Véhicules disponibles
                       {vehicules.length > 0 && <span className="ml-2 text-sm text-gray-400 font-normal">({vehicules.length})</span>}
                     </h3>
-                  </div>
+                  </div> */}
 
                   {vehicules.length === 0 ? (
-                    <div className="text-center py-12 bg-gray-50 dark:bg-zinc-800/50 rounded-2xl">
-                      <Car className="w-12 h-12 mx-auto mb-3 text-gray-300 dark:text-gray-600" />
-                      <p className="text-gray-400 text-sm">Aucun véhicule disponible pour cette marque.</p>
-                      <p className="text-gray-500 text-xs mt-1">Contactez-nous pour plus d'informations.</p>
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                      {vehicules.map((v, i) => (
-                        <motion.div key={v.id}
-                          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}
-                          className="bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-2xl overflow-hidden hover:border-red-500/40 dark:hover:border-red-600/30 transition-all group">
-                          {/* Image */}
-                          <div className="relative h-40 bg-gray-200 dark:bg-zinc-700 overflow-hidden">
-                            {v.image
-                              ? <img src={v.image} alt={v.nom} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                              : <div className="w-full h-full flex items-center justify-center"><Car className="w-10 h-10 text-gray-400" /></div>}
-                            <div className="absolute top-2 left-2">
-                              <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${v.statut === 'disponible' ? 'bg-green-500 text-white' : 'bg-yellow-500 text-white'}`}>
-                                {v.statut}
-                              </span>
-                            </div>
-                          </div>
-                          {/* Info */}
-                          <div className="p-4">
-                            <p className="text-gray-400 text-xs mb-1">{v.annee}</p>
-                            <h4 className="text-gray-900 dark:text-white font-semibold text-sm mb-3">{v.nom}</h4>
-                            <div className="flex items-center gap-3 mb-3">
-                              <span className="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-xs">
-                                <Fuel className="w-3 h-3 text-red-500" /> {v.carburant}
-                              </span>
-                              <span className="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-xs">
-                                <Settings className="w-3 h-3 text-red-500" /> {v.transmission}
-                              </span>
-                              {v.couleur && <span className="text-gray-500 dark:text-gray-400 text-xs">{v.couleur}</span>}
-                            </div>
-                            <p className="text-gray-900 dark:text-white font-bold text-sm">
-                              À partir de {v.prix} <span className="text-xs font-normal text-gray-400">FCFA</span>
-                            </p>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  )}
+  <div className="text-center py-12 bg-gray-50 dark:bg-zinc-800/50 rounded-2xl">
+    <Car className="w-12 h-12 mx-auto mb-3 text-gray-300 dark:text-gray-600" />
+    <p className="text-gray-400 text-sm">Aucun véhicule disponible.</p>
+  </div>
+) : (
+  <div className="relative group mb-8">
+    {/* Conteneur principal de l'image unique */}
+    <div className="relative h-64 sm:h-[700px] w-full bg-gray-100 dark:bg-zinc-800 rounded-3xl overflow-hidden border border-gray-200 dark:border-zinc-700 aspect-video ">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={vehicules[currentImageIndex].id}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.4 }}
+          className="absolute inset-0"
+        >
+          {vehicules[currentImageIndex].image ? (
+            <img 
+              src={vehicules[currentImageIndex].image} 
+              alt={vehicules[currentImageIndex].nom}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <Car className="w-20 h-20 text-gray-300" />
+            </div>
+          )}
+          
+          {/* Overlay d'infos sur l'image */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+            <h4 className="text-white text-xl font-bold">{vehicules[currentImageIndex].nom}</h4>
+            <p className="text-red-400 font-semibold">{vehicules[currentImageIndex].prix} FCFA</p>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Boutons de Navigation */}
+      {vehicules.length > 1 && (
+        <>
+          <button 
+            onClick={() => setCurrentImageIndex((prev) => (prev === 0 ? vehicules.length - 1 : prev - 1))}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white rounded-full flex items-center justify-center transition-all"
+          >
+            <ArrowRight className="w-5 h-5 rotate-180" />
+          </button>
+          <button 
+            onClick={() => setCurrentImageIndex((prev) => (prev === vehicules.length - 1 ? 0 : prev + 1))}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white rounded-full flex items-center justify-center transition-all"
+          >
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </>
+      )}
+    </div>
+
+    {/* Indicateurs (Petits points) */}
+    <div className="flex justify-center gap-2 mt-4">
+      {vehicules.map((_, i) => (
+        <button
+          key={i}
+          onClick={() => setCurrentImageIndex(i)}
+          className={`h-1.5 transition-all rounded-full ${i === currentImageIndex ? 'w-8 bg-red-600' : 'w-2 bg-gray-300 dark:bg-zinc-700'}`}
+        />
+      ))}
+    </div>
+  </div>
+)}
+
+
 
                   {/* CTA */}
                   <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100 dark:border-zinc-800">
