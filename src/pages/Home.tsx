@@ -101,23 +101,32 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10 sm:mb-16">
             <span className="inline-block px-4 py-2 bg-red-600/10 dark:bg-red-600/20 border border-red-600/30 rounded-full text-red-600 dark:text-red-400 text-sm font-medium mb-4 sm:mb-6">
-              Notre offre
+              Nos offres
             </span>
+            <p>
+              <img src="https://scontent.fcoo4-1.fna.fbcdn.net/v/t39.30808-6/645888863_1234062095372509_2767462770307430451_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=13d280&_nc_ohc=JI0OdqhUvY0Q7kNvwEmvez4&_nc_oc=AdrzWLaaxTH9RPyb2Au165Hch20jJ_7kiZPT0vCC9pwaavHuKgmwIIQ1lIWSXJOONuA&_nc_zt=23&_nc_ht=scontent.fcoo4-1.fna&_nc_gid=r6l-thOyz6XbQ470DNjLOQ&_nc_ss=7a30f&oh=00_AfwNB9jhaGz5NN_ecEpiBuEsxn4p0-S4Fv1xT0suC8Dxow&oe=69C495E1" alt="Promo" />
+            </p>
+            <br />
+            <br />
+            <br /> 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Nos <span className="gradient-text">Gammes</span>
+              Découvrir nos <span className="gradient-text">Gammes</span>
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg max-w-xl mx-auto">
               Un véhicule pour chaque besoin, du deux-roues au poids lourd.
             </p>
-          </motion.div>
 
-          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 lg:gap-10">
+            
+          </motion.div>
+          
+
+          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-7 gap-3 sm:gap-6 lg:gap-10">
             {gammes.map((gamme, index) => (
               <motion.div key={gamme.label}
                 initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
                 transition={{ delay: index * 0.1, type: 'spring', bounce: 0.4 }} whileHover={{ y: -8 }}>
                 <Link to="/marques" className="flex flex-col items-center group">
-                  <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-gray-100 dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900 border-2 border-gray-200 dark:border-zinc-700 
+                  <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-25 md:h-25 rounded-full bg-gray-100 dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900 border-2 border-gray-200 dark:border-zinc-700 
                   group-hover:border-red-500 dark:group-hover:border-red-600/50 flex items-center justify-center transition-all duration-500 relative shadow-sm dark:shadow-none">
                     <div className="absolute inset-0 rounded-full bg-red-600/0 group-hover:bg-red-600/5 dark:group-hover:bg-red-600/10 transition-all duration-500" />
                     <gamme.icon className="w-7 h-7 sm:w-10 sm:h-10 text-gray-400 group-hover:text-red-500 transition-colors duration-300" />

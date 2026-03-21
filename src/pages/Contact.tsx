@@ -143,6 +143,7 @@ const Contact = () => {
                 )}
               </div>
             </motion.div>
+            
 
             {/* Contact Info */}
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="lg:col-span-2 space-y-6">
@@ -186,6 +187,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      
 
       {/* FAQ */}
       <section className="py-20 bg-gray-50 dark:bg-transparent">

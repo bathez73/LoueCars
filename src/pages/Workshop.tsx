@@ -100,7 +100,7 @@ const Workshop = () => {
               Nos Implantations
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Nos <span className="gradient-text">Showroom</span> en Afrique de l'Ouest
+              Nos <span className="gradient-text">Ateliers & SAV</span> en Afrique de l'Ouest
             </h2>
             <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
               Nous sommes présent pour vous servir au plus près de vos besoins.
