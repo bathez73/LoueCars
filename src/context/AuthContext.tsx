@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from 'react';
 
 const ADMIN_USER = 'admin';
-const ADMIN_PASS = 'mig2024';
-const AUTH_KEY = 'mig_admin_auth';
+const ADMIN_PASS = 'louecars2024';
+const AUTH_KEY = 'louecars_admin_auth';
 
 interface AuthContextType {
   isAuthenticated: boolean;

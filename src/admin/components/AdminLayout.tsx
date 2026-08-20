@@ -30,11 +30,11 @@ const AdminLayout = () => {
       {/* Logo */}
       <div className="p-6 border-b border-zinc-800">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-800 rounded-xl flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-br from-[#F05A1A] to-[#C4440F] rounded-xl flex items-center justify-center">
             <Car className="w-5 h-5 text-white" />
           </div>
           <div>
-            <p className="text-white font-bold text-sm">MIG Motors</p>
+            <p className="text-white font-bold text-sm">LoueCars</p>
             <p className="text-gray-500 text-xs">Administration</p>
           </div>
         </div>
@@ -49,7 +49,7 @@ const AdminLayout = () => {
             onClick={() => setSidebarOpen(false)}
             className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${
               location.pathname === item.path
-                ? 'bg-red-600/20 text-red-400 border border-red-600/30'
+                ? 'bg-[#F05A1A]/20 text-[#F47A45] border border-[#F05A1A]/30'
                 : 'text-gray-400 hover:bg-zinc-800 hover:text-white'
             }`}
           >
@@ -58,7 +58,7 @@ const AdminLayout = () => {
               <span className="font-medium text-sm">{item.label}</span>
             </div>
             {item.badge > 0 && (
-              <span className="px-2 py-0.5 bg-red-600 text-white text-xs font-bold rounded-full">
+              <span className="px-2 py-0.5 bg-[#F05A1A] text-white text-xs font-bold rounded-full">
                 {item.badge}
               </span>
             )}
@@ -70,7 +70,7 @@ const AdminLayout = () => {
       <div className="p-4 border-t border-zinc-800">
         <button
           onClick={handleLogout}
-          className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-red-600/10 hover:text-red-400 transition-all duration-200"
+          className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-[#F05A1A]/10 hover:text-[#F47A45] transition-all duration-200"
         >
           <LogOut className="w-5 h-5" />
           <span className="font-medium text-sm">Déconnexion</span>
@@ -112,12 +112,12 @@ const AdminLayout = () => {
             {unreadCount > 0 && (
               <Link to="/admin/messages" className="relative">
                 <Mail className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
-                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-red-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-[#F05A1A] text-white text-xs font-bold rounded-full flex items-center justify-center">
                   {unreadCount}
                 </span>
               </Link>
             )}
-            <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#F05A1A] to-[#C4440F] rounded-full flex items-center justify-center">
               <span className="text-white text-xs font-bold">A</span>
             </div>
             <span className="text-gray-300 text-sm hidden sm:block">Admin</span>

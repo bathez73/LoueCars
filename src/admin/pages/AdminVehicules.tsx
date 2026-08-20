@@ -75,7 +75,7 @@ const AdminVehicules = () => {
     return matchSearch && matchMarque;
   });
 
-  const inputClass = "w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white placeholder-gray-500 focus:border-red-500 outline-none transition-all text-sm";
+  const inputClass = "w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white placeholder-gray-500 focus:border-[#F26831] outline-none transition-all text-sm";
 
   return (
     <div>
@@ -85,7 +85,7 @@ const AdminVehicules = () => {
           <p className="text-gray-400 mt-1">{vehicules.length} véhicule{vehicules.length > 1 ? 's' : ''}</p>
         </div>
         <button onClick={openAdd}
-          className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-red-600/30 transition-all text-sm">
+          className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-[#F05A1A] to-[#D44D12] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#F05A1A]/30 transition-all text-sm">
           <Plus className="w-4 h-4" /> Ajouter
         </button>
       </div>
@@ -156,7 +156,7 @@ const AdminVehicules = () => {
                         <button onClick={() => openEdit(v)} className="w-8 h-8 bg-zinc-800 hover:bg-blue-600/20 hover:text-blue-400 text-gray-400 rounded-lg flex items-center justify-center transition-all">
                           <Pencil className="w-3.5 h-3.5" />
                         </button>
-                        <button onClick={() => setDeleteConfirm(v.id)} className="w-8 h-8 bg-zinc-800 hover:bg-red-600/20 hover:text-red-400 text-gray-400 rounded-lg flex items-center justify-center transition-all">
+                        <button onClick={() => setDeleteConfirm(v.id)} className="w-8 h-8 bg-zinc-800 hover:bg-[#F05A1A]/20 hover:text-[#F47A45] text-gray-400 rounded-lg flex items-center justify-center transition-all">
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
                       </div>
@@ -212,7 +212,7 @@ const AdminVehicules = () => {
                       )}
                       <input type="text" value={form.image} onChange={e => { setPreview(''); setForm({ ...form, image: e.target.value }); }}
                         placeholder="URL ou chemin ex: /vehicules/kia.jpg"
-                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-2 px-3 text-white text-sm placeholder-gray-500 focus:border-red-500 outline-none transition-all" />
+                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-2 px-3 text-white text-sm placeholder-gray-500 focus:border-[#F26831] outline-none transition-all" />
                     </div>
                   </div>
                 </div>
@@ -296,7 +296,7 @@ const AdminVehicules = () => {
                   <label className="block text-gray-400 text-sm mb-2">Description</label>
                   <textarea value={form.description} onChange={e => setForm({ ...form, description: e.target.value })}
                     rows={3} placeholder="Description du véhicule..."
-                    className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white placeholder-gray-500 focus:border-red-500 outline-none transition-all resize-none text-sm" />
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white placeholder-gray-500 focus:border-[#F26831] outline-none transition-all resize-none text-sm" />
                 </div>
 
                 <div className="flex gap-3 pt-2">
@@ -305,7 +305,7 @@ const AdminVehicules = () => {
                     Annuler
                   </button>
                   <button type="submit"
-                    className="flex-1 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-red-600/30 transition-all">
+                    className="flex-1 py-3 bg-gradient-to-r from-[#F05A1A] to-[#D44D12] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#F05A1A]/30 transition-all">
                     {editing ? 'Modifier' : 'Ajouter'}
                   </button>
                 </div>
@@ -322,14 +322,14 @@ const AdminVehicules = () => {
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }}
               className="w-full max-w-sm bg-zinc-900 border border-zinc-700 rounded-2xl p-6 text-center">
-              <div className="w-14 h-14 bg-red-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Trash2 className="w-7 h-7 text-red-500" />
+              <div className="w-14 h-14 bg-[#F05A1A]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Trash2 className="w-7 h-7 text-[#F26831]" />
               </div>
               <h3 className="text-white font-bold text-lg mb-2">Supprimer ce véhicule ?</h3>
               <p className="text-gray-400 text-sm mb-6">Cette action est irréversible.</p>
               <div className="flex gap-3">
                 <button onClick={() => setDeleteConfirm(null)} className="flex-1 py-2.5 bg-zinc-800 text-gray-300 rounded-xl hover:bg-zinc-700 transition-all">Annuler</button>
-                <button onClick={() => handleDelete(deleteConfirm)} className="flex-1 py-2.5 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all">Supprimer</button>
+                <button onClick={() => handleDelete(deleteConfirm)} className="flex-1 py-2.5 bg-[#F05A1A] text-white rounded-xl hover:bg-[#D44D12] transition-all">Supprimer</button>
               </div>
             </motion.div>
           </motion.div>

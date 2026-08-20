@@ -1,3 +1,11 @@
+import { CONFIG } from './config';
+import toyotaLogo from '../assets/marques/toyota.svg';
+import nissanLogo from '../assets/marques/nissan.svg';
+import suzukiLogo from '../assets/marques/suzuki.svg';
+import daciaLogo from '../assets/marques/dacia.svg';
+import volkswagenLogo from '../assets/marques/volkswagen.svg';
+import citroenLogo from '../assets/marques/citroen.svg';
+
 export interface ContactMessage {
   id: string;
   name: string;
@@ -10,7 +18,7 @@ export interface ContactMessage {
   read: boolean;
 }
 
-const MESSAGES_KEY = 'mig_messages';
+const MESSAGES_KEY = 'louecars_messages';
 
 export const getMessages = (): ContactMessage[] => {
   const data = localStorage.getItem(MESSAGES_KEY);
@@ -57,26 +65,32 @@ export interface Vehicule {
   createdAt: string;
 }
 
-const MARQUES_KEY = 'mig_marques';
-const VEHICULES_KEY = 'mig_vehicules';
+const MARQUES_KEY = 'louecars_marques';
+const VEHICULES_KEY = 'louecars_vehicules';
 
 const defaultMarques: Marque[] = [
-  { id: '1', nom: 'KIA', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/KIA_logo2.svg/800px-KIA_logo2.svg.png', type: 'Berlines & SUV', description: 'Leader mondial de l\'innovation automobile.', createdAt: new Date().toISOString() },
-  { id: '2', nom: 'MERCEDES', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/800px-Mercedes-Logo.svg.png', type: 'Luxe & Premium', description: 'L\'incarnation du luxe automobile allemand.', createdAt: new Date().toISOString() },
-  { id: '3', nom: 'FIAT', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Fiat_Automobiles_logo.svg/800px-Fiat_Automobiles_logo.svg.png', type: 'Citadines', description: 'Le charme et l\'ingéniosité italienne.', createdAt: new Date().toISOString() },
-  { id: '4', nom: 'FUSO', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Mitsubishi_Fuso_Logo.svg/800px-Mitsubishi_Fuso_Logo.svg.png', type: 'Camions & Utilitaires', description: 'Camions robustes pour conditions exigeantes.', createdAt: new Date().toISOString() },
-  { id: '5', nom: 'PIAGGIO', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Piaggio_logo.svg/800px-Piaggio_logo.svg.png', type: 'Deux-roues', description: 'Mobilité urbaine élégante à l\'italienne.', createdAt: new Date().toISOString() },
-  { id: '6', nom: 'KAIYI', logo: 'https://www.kaiyiauto.com/img/logo.png', type: 'Berlines & SUV', description: 'L\'avenir de l\'automobile chinoise.', createdAt: new Date().toISOString() },
-  { id: '7', nom: 'ASHOK LEYLAND', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Ashok_Leyland_logo.svg/800px-Ashok_Leyland_logo.svg.png', type: 'Poids lourds & Bus', description: 'Solutions de transport fiables.', createdAt: new Date().toISOString() },
-  { id: '8', nom: 'JEEP', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Ashok_Leyland_logo.svg/800px-Ashok_Leyland_logo.svg.png', type: 'SUV', description: ' transport confortable.', createdAt: new Date().toISOString() },
+  { id: '1', nom: 'Toyota', logo: toyotaLogo, type: 'SUV & Minibus', description: 'Fiabilité et polyvalence pour tous vos trajets.', createdAt: new Date().toISOString() },
+  { id: '2', nom: 'Nissan', logo: nissanLogo, type: 'SUV & Pick-up', description: 'Robustesse et confort sur toutes les routes.', createdAt: new Date().toISOString() },
+  { id: '3', nom: 'Suzuki', logo: suzukiLogo, type: 'SUV & Berlines', description: 'Compacité et économie pour la ville et la route.', createdAt: new Date().toISOString() },
+  { id: '4', nom: 'Dacia', logo: daciaLogo, type: 'SUV & 4×4', description: 'Le meilleur rapport qualité-prix du marché.', createdAt: new Date().toISOString() },
+  { id: '5', nom: 'Volkswagen', logo: volkswagenLogo, type: 'Berlines', description: 'L\'ingénierie allemande au service de votre confort.', createdAt: new Date().toISOString() },
+  { id: '6', nom: 'Citroën', logo: citroenLogo, type: 'SUV & Citadines', description: 'Le confort à la française pour chaque voyage.', createdAt: new Date().toISOString() },
 ];
 
 const defaultVehicules: Vehicule[] = [
-  { id: '1', marqueId: '1', nom: 'KIA Sportage', prix: '18 500 000', annee: '2024', carburant: 'Essence', transmission: 'Automatique', couleur: 'Blanc', description: 'SUV compact moderne avec technologie avancée.', image: 'https://www.kia.com/content/dam/kwcms/kme/fr/fr/assets/contents/homepage/HP_natio_D_Gamme_suv_s.webp', statut: 'disponible', createdAt: new Date().toISOString() },
-  { id: '2', marqueId: '1', nom: 'KIA Picanto', prix: '9 200 000', annee: '2024', carburant: 'Essence', transmission: 'Manuelle', couleur: 'Rouge', description: 'Citadine économique et agile.', image: 'https://www.kia.com/content/dam/kwcms/kme/fr/fr/assets/contents/homepage/HP_natio_D_GammeCeed.webp', statut: 'disponible', createdAt: new Date().toISOString() },
-  { id: '3', marqueId: '2', nom: 'Mercedes Classe C', prix: '45 000 000', annee: '2023', carburant: 'Diesel', transmission: 'Automatique', couleur: 'Noir', description: 'Berline de luxe par excellence.', image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80', statut: 'disponible', createdAt: new Date().toISOString() },
-  { id: '4', marqueId: '3', nom: 'Fiat 500', prix: '8 900 000', annee: '2023', carburant: 'Essence', transmission: 'Automatique', couleur: 'Bleu', description: 'Icône du style italien.', image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=800&q=80', statut: 'réservé', createdAt: new Date().toISOString() },
-  { id: '5', marqueId: '8', nom: 'JEEP 500', prix: '8 900 000', annee: '2023', carburant: 'Essence', transmission: 'Automatique', couleur: 'Bleu', description: 'Icône du style italien.', image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=800&q=80', statut: 'réservé', createdAt: new Date().toISOString() },
+  { id: '1',  marqueId: '1', nom: 'Toyota Corolla Cross', prix: '35 000 / jour', annee: '2023', carburant: 'Essence',  transmission: 'Automatique', couleur: 'Blanc',   description: 'SUV compact confortable, idéal pour la ville et les longues distances.',          image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2026/08/louecars-toyota-showroom.jpeg`,                        statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '2',  marqueId: '1', nom: 'Toyota Fortuner',      prix: '50 000 / jour', annee: '2022', carburant: 'Diesel',   transmission: 'Automatique', couleur: 'Gris',    description: 'SUV 4×4 puissant pour tous les terrains, parfait pour les voyages.',             image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/01/WhatsApp-Image-2023-01-09-at-08.29.46.jpeg`,           statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '3',  marqueId: '1', nom: 'Toyota Prado',         prix: '55 000 / jour', annee: '2022', carburant: 'Diesel',   transmission: 'Automatique', couleur: 'Noir',    description: 'SUV 7 places robuste et spacieux pour voyages en groupe.',                       image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/01/WhatsApp-Image-2023-01-09-at-08.29.46-1.jpeg`,         statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '4',  marqueId: '1', nom: 'Toyota Hiace',         prix: '60 000 / jour', annee: '2021', carburant: 'Diesel',   transmission: 'Manuelle',    couleur: 'Blanc',   description: 'Minibus 15 places idéal pour les transferts de groupes.',                        image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/01/WhatsApp-Image-2023-01-09-at-08.29.49-1.jpeg`,         statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '5',  marqueId: '2', nom: 'Nissan Hardbody',      prix: '35 000 / jour', annee: '2022', carburant: 'Diesel',   transmission: 'Manuelle',    couleur: 'Blanc',   description: 'Pick-up polyvalent, parfait pour les terrains difficiles.',                       image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/01/WhatsApp-Image-2023-01-09-at-08.17.09.jpeg`,           statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '6',  marqueId: '2', nom: 'Nissan X-Trail',       prix: '40 000 / jour', annee: '2022', carburant: 'Essence',  transmission: 'Automatique', couleur: 'Blanc',   description: 'SUV spacieux et confortable pour les voyages en famille.',                        image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/11/WhatsApp-Image-2023-11-14-at-18.34.26.jpeg`,           statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '7',  marqueId: '3', nom: 'Suzuki Grand Vitara',  prix: '30 000 / jour', annee: '2022', carburant: 'Essence',  transmission: 'Manuelle',    couleur: 'Argenté', description: 'SUV compact robuste, excellent sur route comme hors route.',                      image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/09/IMG-20230831-WA0005.jpg`,                               statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '8',  marqueId: '3', nom: 'Suzuki Ertiga',        prix: '28 000 / jour', annee: '2023', carburant: 'Essence',  transmission: 'Automatique', couleur: 'Blanc',   description: 'Monospace 7 places économique, idéal pour les familles.',                        image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/09/IMG-20230831-WA0004.jpg`,                               statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '9',  marqueId: '3', nom: 'Suzuki Vitara',        prix: '28 000 / jour', annee: '2022', carburant: 'Essence',  transmission: 'Automatique', couleur: 'Rouge',   description: 'SUV urbain léger et agile pour vos déplacements quotidiens.',                     image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/09/IMG-20230831-WA0003.jpg`,                               statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '10', marqueId: '3', nom: 'Suzuki Jimny',         prix: '32 000 / jour', annee: '2024', carburant: 'Essence',  transmission: 'Manuelle',    couleur: 'Vert',    description: 'Petit 4×4 légendaire en version 5 portes, parfait pour l\'aventure.',            image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2025/07/IMG-20250515-WA0022-2.jpg`,                             statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '11', marqueId: '4', nom: 'Dacia Duster',         prix: '25 000 / jour', annee: '2022', carburant: 'Essence',  transmission: 'Manuelle',    couleur: 'Gris',    description: 'SUV 4×4 et 4×2 au meilleur rapport qualité-prix pour tous vos trajets.',        image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/01/WhatsApp-Image-2023-01-09-at-08.16.36.jpeg`,           statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '12', marqueId: '5', nom: 'Volkswagen Polo',      prix: '20 000 / jour', annee: '2022', carburant: 'Essence',  transmission: 'Manuelle',    couleur: 'Blanc',   description: 'Berline compacte économique, idéale pour les déplacements urbains.',              image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/01/WhatsApp-Image-2023-01-09-at-08.29.48.jpeg`,           statut: 'disponible', createdAt: new Date().toISOString() },
+  { id: '13', marqueId: '6', nom: 'Citroën C4 Cactus',   prix: '22 000 / jour', annee: '2021', carburant: 'Essence',  transmission: 'Automatique', couleur: 'Beige',   description: 'Citadine confortable et originale pour vos déplacements en ville.',               image: `${CONFIG.louecarsBaseUrl}/wp-content/uploads/2023/01/WhatsApp-Image-2023-01-09-at-08.29.46-2.jpeg`,         statut: 'disponible', createdAt: new Date().toISOString() },
 ];
 
 // --- Marques ---
@@ -86,7 +100,14 @@ export const getMarques = (): Marque[] => {
     localStorage.setItem(MARQUES_KEY, JSON.stringify(defaultMarques));
     return defaultMarques;
   }
-  return JSON.parse(data);
+  // Réinitialiser si les données sont de l'ancienne base (MIG) ou contiennent d'anciens logos Wikimedia cassés
+  const parsed = JSON.parse(data) as Marque[];
+  if (parsed.some(m => ['KIA', 'FUSO', 'PIAGGIO', 'ASHOK LEYLAND', 'KAIYI'].includes(m.nom)) || parsed.some(m => m.logo?.includes('upload.wikimedia.org'))) {
+    localStorage.setItem(MARQUES_KEY, JSON.stringify(defaultMarques));
+    localStorage.setItem(VEHICULES_KEY, JSON.stringify(defaultVehicules));
+    return defaultMarques;
+  }
+  return parsed;
 };
 
 export const saveMarques = (marques: Marque[]) => {

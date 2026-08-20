@@ -37,10 +37,10 @@ const AdminLogin = () => {
       >
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-red-600/30">
+          <div className="w-16 h-16 bg-gradient-to-br from-[#F05A1A] to-[#C4440F] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-[#F05A1A]/30">
             <Car className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-white">MIG Motors</h1>
+          <h1 className="text-2xl font-bold text-white">LoueCars</h1>
           <p className="text-gray-400 text-sm mt-1">Espace Administration</p>
         </div>
 
@@ -50,7 +50,7 @@ const AdminLogin = () => {
 
           {error && (
             <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}
-              className="mb-4 px-4 py-3 bg-red-600/10 border border-red-600/30 rounded-xl text-red-400 text-sm">
+              className="mb-4 px-4 py-3 bg-[#F05A1A]/10 border border-[#F05A1A]/30 rounded-xl text-[#F47A45] text-sm">
               {error}
             </motion.div>
           )}
@@ -66,7 +66,7 @@ const AdminLogin = () => {
                   onChange={e => setForm({ ...form, username: e.target.value })}
                   required
                   placeholder="admin"
-                  className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 pl-12 pr-4 text-white placeholder-gray-500 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none transition-all"
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 pl-12 pr-4 text-white placeholder-gray-500 focus:border-[#F26831] focus:ring-1 focus:ring-[#F26831] outline-none transition-all"
                 />
               </div>
             </div>
@@ -81,7 +81,7 @@ const AdminLogin = () => {
                   onChange={e => setForm({ ...form, password: e.target.value })}
                   required
                   placeholder="••••••••"
-                  className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 pl-12 pr-12 text-white placeholder-gray-500 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none transition-all"
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 pl-12 pr-12 text-white placeholder-gray-500 focus:border-[#F26831] focus:ring-1 focus:ring-[#F26831] outline-none transition-all"
                 />
                 <button
                   type="button"
@@ -98,7 +98,7 @@ const AdminLogin = () => {
               disabled={loading}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-xl flex items-center justify-center hover:shadow-lg hover:shadow-red-600/30 transition-all disabled:opacity-60"
+              className="w-full py-3 bg-gradient-to-r from-[#F05A1A] to-[#D44D12] text-white font-semibold rounded-xl flex items-center justify-center hover:shadow-lg hover:shadow-[#F05A1A]/30 transition-all disabled:opacity-60"
             >
               {loading ? (
                 <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
@@ -108,7 +108,7 @@ const AdminLogin = () => {
           </form>
 
           <p className="text-center text-gray-600 text-xs mt-6">
-            admin / mig2024
+            admin / louecars2024
           </p>
         </div>
       </motion.div>
